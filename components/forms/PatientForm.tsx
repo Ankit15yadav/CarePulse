@@ -9,8 +9,9 @@ import { Form, } from "@/components/ui/form"
 import CustomFormField from "../CustomFormField"
 import SubmitButton from "../SubmitButton"
 import { useState } from "react"
-// import { userFormValidation } from "@/lib/validation"
+import { userFormValidation } from "@/lib/validation"
 import { useRouter } from "next/navigation"
+import { createUser } from "@/lib/actions/patient.actions"
 
 export enum FormFieldtype {
     INPUT = 'input',
@@ -29,15 +30,6 @@ const PatientForm = () => {
 
     const [isLoading, setIsloading] = useState(false);
 
-    const userFormValidation = z.object({
-        name: z.string()
-            .min(2, "Username must be at least 2 characters.")
-            .max(50, "name must be at most 50 characters"),
-
-        email: z.string().email("invalid email address"),
-        phone: z.string().refine((phone) => /^\+\d{10,15}$/.test(phone), 'Invalid phone number')
-    })
-
     const form = useForm<z.infer<typeof userFormValidation>>({
         resolver: zodResolver(userFormValidation),
         defaultValues: {
@@ -55,11 +47,11 @@ const PatientForm = () => {
 
         try {
 
-            // const userData = { name, email, phone }
+            const userData = { name, email, phone }
 
-            // const user = await createUser(userData);
+            const user = await createUser(userData);
 
-            // if (user) router.push(`/patients/${user.$id}/register`)
+            if (user) router.push(`/patients/${user.$id}/register`)
 
         } catch (error) {
             console.log(error);
