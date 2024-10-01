@@ -18,7 +18,7 @@ export enum FormFieldtype {
     CHECKBOX = 'checkbox',
     TEXTAREA = 'textarea',
     PHONE_INPUT = 'phoneInput',
-    DATE_PICKER = 'datePicker',
+    DATE_PICKER = 'date',
     SELECT = 'select',
     SKELETON = 'skeleton',
 

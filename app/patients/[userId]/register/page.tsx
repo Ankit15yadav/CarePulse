@@ -17,7 +17,7 @@ const page = async ({ params: { userId } }: SearchParamProps) => {
                         width={1000}
                         height={1000}
                         alt="patient"
-                        className="mb-12 h-10 w-fit"
+                        className="mb-12 h-10 w-fit "
                     />
 
                     <RegisterForm
@@ -39,7 +39,7 @@ const page = async ({ params: { userId } }: SearchParamProps) => {
                 height={1000}
                 width={1000}
                 alt="patient"
-                className="side-img max-w-[50%]"
+                className="side-img max-w-[390px]"
 
             />
         </div>
